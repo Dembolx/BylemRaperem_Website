@@ -18,7 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "świadomie nawijam to w czasie przeszłym", time: 10 },
     { text: "bo byłem raperem", time: 14 },
     { text: "lecz postanowiłem że będę kimś lepszym", time: 16 },
-    // ... continue with all lyrics and estimated timestamps
+    { text: "Scena to festyn, dlatego brocki zrobi z niej brexit", time: 20 },
+    { text: "Wyciągnij wnioski kto pisze teksty twoich idoli", time: 24 },
+    { text: "Zobacz creditsy czy to nie Jakub Birecki", time: 28 },
+    { text: "[Nawet jeśli kiedyś ktoś skreślił cię", time: 32, isChorus: true },
+    { text: "Dalej biegnij po swoje", time: 36, isChorus: true },
+    { text: "Tyle presji na barkach musiałem nieść", time: 40, isChorus: true },
+    { text: "Jeśli będzie trzeba znowu to zrobię]", time: 44, isChorus: true },
+    // ... kontynuuj z resztą tekstu
   ];
 
   // Timeline data
@@ -68,29 +75,33 @@ document.addEventListener("DOMContentLoaded", function () {
   // Format and display lyrics
   function formatLyrics() {
     let html = "";
-    let currentChorus = "";
+    let chorusLines = [];
     let inChorus = false;
 
     lyricsData.forEach((line) => {
       if (line.text === "") {
-        html += `<p class="empty-line"></p>`;
-      } else if (line.text.startsWith("[")) {
-        // Chorus start
-        currentChorus = line.text.replace("[", "").replace("]", "");
-        inChorus = true;
-        html += `<p class="chorus">${currentChorus}</p>`;
-      } else if (inChorus && line.text.includes("x")) {
-        // Chorus repeat
-        const times = parseInt(line.text.match(/x(\d+)/)[1]);
-        for (let i = 0; i < times; i++) {
-          html += `<p class="chorus">${currentChorus}</p>`;
+        html += `<p class="empty-line"><br></p>`;
+      } else if (line.text.startsWith("[") || line.isChorus) {
+        if (!inChorus) {
+          // Rozpoczęcie refrenu
+          inChorus = true;
+          chorusLines = [];
         }
-        inChorus = false;
+        chorusLines.push(line.text.replace("[", "").replace("]", ""));
       } else {
-        // Regular line
+        if (inChorus) {
+          // Zakończenie refrenu
+          html += `<div class="chorus">${chorusLines.join("<br>")}</div>`;
+          inChorus = false;
+        }
         html += `<p>${line.text}</p>`;
       }
     });
+
+    // Na wypadek, gdyby refren był na końcu
+    if (inChorus) {
+      html += `<div class="chorus">${chorusLines.join("<br>")}</div>`;
+    }
 
     lyricsElement.innerHTML = html;
   }
@@ -172,6 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function highlightLyric() {
     const currentTime = audioElement.currentTime;
     const lyricsP = document.querySelectorAll("#lyrics p");
+    const container = document.querySelector(".lyrics-container");
 
     let activeIndex = -1;
 
@@ -186,9 +198,17 @@ document.addEventListener("DOMContentLoaded", function () {
     lyricsP.forEach((p, index) => {
       p.classList.toggle("active", index === activeIndex);
 
-      // Scroll to active lyric
+      // Smooth scroll to active lyric
       if (index === activeIndex) {
-        p.scrollIntoView({ behavior: "smooth", block: "center" });
+        const containerHeight = container.clientHeight;
+        const lyricPosition = p.offsetTop;
+        const scrollTo =
+          lyricPosition - containerHeight / 2 + p.clientHeight / 2;
+
+        container.scrollTo({
+          top: scrollTo,
+          behavior: "smooth",
+        });
       }
     });
   }
