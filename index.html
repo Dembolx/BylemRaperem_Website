@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B.R.O - Byłem raperem | Artystyczna Transformacja</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&family=Oswald:wght@500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader">
+      <div
+        class="loader-logo animate__animated animate__pulse animate__infinite"
+      >
+        <span>B</span><span>.</span><span>R</span><span>.</span><span>O</span>
+      </div>
+    </div>
+
+    <div class="audio-player">
+      <audio id="song" src="audio.mp3"></audio>
+      <div class="player-controls">
+        <button id="play-btn" class="control-btn">▶</button>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="time">0:00</div>
+        <button id="volume-btn" class="control-btn">🔊</button>
+        <input
+          type="range"
+          id="volume-control"
+          min="0"
+          max="1"
+          step="0.1"
+          value="0.7"
+        />
+      </div>
+    </div>
+
+    <header class="parallax-header">
+      <div class="header-overlay"></div>
+      <div class="header-content">
+        <h1 class="title-animation glitch" data-text="BYŁEM RAPEREM">
+          BYŁEM RAPEREM
+        </h1>
+        <p class="subtitle animate__animated animate__fadeIn animate__delay-1s">
+          Artystyczna ewolucja B.R.O
+        </p>
+        <div class="header-scene">
+          <div
+            class="vinyl animate__animated animate__rotateIn animate__delay-2s"
+          ></div>
+          <div
+            class="microphone animate__animated animate__fadeInRight animate__delay-3s"
+          ></div>
+        </div>
+      </div>
+      <div
+        class="scroll-down animate__animated animate__bounce animate__infinite animate__delay-3s"
+      >
+        ↓
+      </div>
+    </header>
+
+    <nav class="sticky-nav">
+      <ul>
+        <li><a href="#lyrics" class="nav-link">Tekst</a></li>
+        <li><a href="#evolution" class="nav-link">Ewolucja</a></li>
+        <li><a href="#gallery" class="nav-link">Galeria</a></li>
+        <li><a href="#meaning" class="nav-link">Znaczenie</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="lyrics" class="lyrics-section">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Tekst utworu</h2>
+          <div class="lyrics-container">
+            <div class="lyrics-text" id="lyrics">
+              <!-- Tekst będzie wstrzykiwany przez JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="evolution" class="evolution-section">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Moja Ewolucja</h2>
+          <div class="evolution-timeline">
+            <!-- Timeline będzie generowany przez JS -->
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery-section">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Galeria Transformacji</h2>
+          <div class="gallery-grid">
+            <div class="gallery-item animate-on-scroll">
+              <img
+                src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Wczesne lata"
+              />
+              <div class="gallery-overlay">
+                <h3>Wczesne lata</h3>
+                <p>"Byłem raperem świadomie nawijam to w czasie przeszłym"</p>
+              </div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+              <img
+                src="https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Przełom"
+              />
+              <div class="gallery-overlay">
+                <h3>Przełom</h3>
+                <p>"Postanowiłem że będę kimś lepszym"</p>
+              </div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+              <img
+                src="https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Nowy rozdział"
+              />
+              <div class="gallery-overlay">
+                <h3>Nowy rozdział</h3>
+                <p>"Robię karierę z civica przesiadłem się w Maserati"</p>
+              </div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+              <img
+                src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Sukces"
+              />
+              <div class="gallery-overlay">
+                <h3>Sukces</h3>
+                <p>
+                  "Słuchają mnie wasze matki w drodze do pracy na głównej
+                  rotacji"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="meaning" class="meaning-section">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Znaczenie utworu</h2>
+          <div class="meaning-content">
+            <div class="meaning-text animate-on-scroll">
+              <h3>Transformacja artystyczna</h3>
+              <p>
+                Utwór "Byłem raperem" to szczera opowieść o przemianie
+                artystycznej i osobistej. B.R.O otwarcie mówi o swoich
+                doświadczeniach, wyborach i cenie, jaką zapłacił za pozostanie
+                wiernym sobie.
+              </p>
+              <p>
+                Tekst pełen jest autoironii, ale też dumy z przebytej drogi. To
+                manifest artysty, który nie boi się zmian i potrafi śmiać się z
+                siebie.
+              </p>
+            </div>
+            <div class="meaning-image animate-on-scroll">
+              <img
+                src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                alt="Znaczenie utworu"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote-section">
+        <div
+          class="quote-text glitch"
+          data-text="Nawet jeśli kiedyś ktoś skreślił cię, dalej biegnij po swoje"
+        >
+          Nawet jeśli kiedyś ktoś skreślił cię<br />
+          Dalej biegnij po swoje
+        </div>
+        <div class="signature">- B.R.O</div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <span>B</span><span>.</span><span>R</span><span>.</span
+            ><span>O</span>
+          </div>
+          <div class="footer-links">
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">YouTube</a>
+            <a href="#" class="social-link">Spotify</a>
+          </div>
+          <div class="footer-disclaimer">
+            <p>
+              Strona artystyczna - niekomercyjna. Wszystkie prawa zastrzeżone.
+            </p>
+            <p>© 2023 B.R.O - Byłem raperem</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="particles" id="particles"></div>
+    <div class="cursor-follower"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
